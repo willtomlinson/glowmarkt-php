@@ -1,0 +1,32 @@
+{
+    "name": "willtomlinson/glowmarkt-php",
+    "description": "A PHP client for the Glowmarkt API",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/willtomlinson/glowmarkt-php",
+    "require": {
+        "php": "^8.2",
+        "saloonphp/saloon": "^4.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "WillTomlinson\\GlowmarktPhp\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests"
+        ],
+        "psr-4": {
+            "WillTomlinson\\GlowmarktPhp\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}

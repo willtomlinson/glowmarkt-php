@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
+use GlowmarktPhp\GlowmarktApi;
 use GlowmarktPhp\Requests\GetAccessTokenRequest;
+use GlowmarktPhp\Requests\GetVirtualEntityRequest;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
-use GlowmarktPhp\Requests\GetVirtualEntityRequest;
-use GlowmarktPhp\GlowmarktApi;
 
-test('it can authenticate', function(): void {
+test('it can authenticate', function (): void {
     MockClient::global([
         GetAccessTokenRequest::class => MockResponse::fixture('authentication'),
         GetVirtualEntityRequest::class => MockResponse::fixture('virtual-entities'),
@@ -24,11 +24,11 @@ test('it can authenticate', function(): void {
         // If we're here, no exception thrown
         $this->addToAssertionCount(1);
     } catch (Exception $e) {
-        $this->fail($e->getMessage());   
+        $this->fail($e->getMessage());
     }
 });
 
-test('it fails authentication', function(): void {
+test('it fails authentication', function (): void {
     MockClient::global([
         GetAccessTokenRequest::class => MockResponse::fixture('failed-authentication'),
         GetVirtualEntityRequest::class => MockResponse::fixture('virtual-entities'),
@@ -42,6 +42,6 @@ test('it fails authentication', function(): void {
         password: getenv('GLOWMARKT_PASSWORD'),
     );
     $api->allowNonCachedRequests();
-    
+
     $api->getVirtualEntities();
 });

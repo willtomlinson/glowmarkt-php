@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
+use Carbon\Carbon;
 use GlowmarktPhp\Enums\AggregateFunction;
 use GlowmarktPhp\Enums\AggregatePeriod;
 use GlowmarktPhp\Requests\GetAccessTokenRequest;
 use GlowmarktPhp\Requests\GetResourceRequest;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
-use Carbon\Carbon;
 
-test('it 404s when getting resource reading for incorrect id', function(): void {
+test('it 404s when getting resource reading for incorrect id', function (): void {
     MockClient::global([
         GetAccessTokenRequest::class => MockResponse::fixture('authentication'),
         GetResourceRequest::class => MockResponse::fixture('resource-not-found'),

@@ -33,5 +33,9 @@
     "allow-plugins": {
       "pestphp/pest-plugin": true
     }
+  },
+  "scripts": {
+    "format": "./vendor/bin/rector",
+    "test": "./vendor/bin/pest"
   }
 }

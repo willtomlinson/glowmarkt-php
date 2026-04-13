@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
+use GlowmarktPhp\Requests\GetAccessTokenRequest;
+use GlowmarktPhp\Requests\GetVirtualEntityRequest;
 use Illuminate\Contracts\Cache\Repository;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
-use GlowmarktPhp\Requests\GetAccessTokenRequest;
-use GlowmarktPhp\Requests\GetVirtualEntityRequest;
 
 test('it throws an exception when a cache driver is not provided and non-caches requests are not allowed', function (): void {
     $api = getApi();
@@ -33,7 +33,7 @@ test('it does not throw an exception when a cache driver is not provided and non
         // If we're here, no exception thrown
         $this->addToAssertionCount(1);
     } catch (Exception $e) {
-        $this->fail($e->getMessage());   
+        $this->fail($e->getMessage());
     }
 });
 

@@ -3,11 +3,11 @@
 declare(strict_types=1);
 
 use GlowmarktPhp\Requests\GetAccessTokenRequest;
+use GlowmarktPhp\Requests\GetVirtualEntityRequest;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
-use GlowmarktPhp\Requests\GetVirtualEntityRequest;
 
-test('it 404s when getting resource reading for incorrect id', function(): void {
+test('it 404s when getting resource reading for incorrect id', function (): void {
     MockClient::global([
         GetAccessTokenRequest::class => MockResponse::fixture('authentication'),
         GetVirtualEntityRequest::class => MockResponse::fixture('virtual-entity-not-found'),
@@ -22,7 +22,7 @@ test('it 404s when getting resource reading for incorrect id', function(): void 
     $api->getVirtualEntity('incorrect-id');
 });
 
-test('it can get all virtual entities', function(): void {
+test('it can get all virtual entities', function (): void {
     MockClient::global([
         GetAccessTokenRequest::class => MockResponse::fixture('authentication'),
         GetVirtualEntityRequest::class => MockResponse::fixture('virtual-entities'),
@@ -39,7 +39,7 @@ test('it can get all virtual entities', function(): void {
     expect($virtualEntities[0]['resources'])->toHaveCount(5);
 });
 
-test('it can get one virtual entity', function(): void {
+test('it can get one virtual entity', function (): void {
     MockClient::global([
         GetAccessTokenRequest::class => MockResponse::fixture('authentication'),
         GetVirtualEntityRequest::class => MockResponse::fixture('virtual-entity'),

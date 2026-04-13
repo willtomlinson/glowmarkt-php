@@ -5,10 +5,6 @@ declare(strict_types=1);
 namespace GlowmarktPhp;
 
 // Documentation: https://docs.glowmarkt.com/GlowmarktAPIDataRetrievalDocumentationIndividualUserForBright.pdf
-use InvalidArgumentException;
-use Exception;
-use RuntimeException;
-use DateTime;
 use GlowmarktPhp\CacheDrivers\NullCacheDriver;
 use GlowmarktPhp\Enums\AggregateFunction;
 use GlowmarktPhp\Enums\AggregatePeriod;
@@ -53,7 +49,7 @@ class GlowmarktApi extends Connector implements Cacheable
     public function __construct(
         private readonly string $username,
         private readonly string $password,
-        CacheItemPoolInterface|Filesystem|Repository|null $cacheDriver = null,
+        $cacheDriver = null,
         private readonly string $applicationId = self::APPLICATION_ID,
     ) {
         $this->cacheDriver = $cacheDriver;
@@ -76,19 +72,19 @@ class GlowmarktApi extends Connector implements Cacheable
 
     public function resolveCacheDriver(): Driver
     {
-        /** @disregard P1009 Undefined type **/
+        /** @disregard P1009 Undefined type */
         if ($this->cacheDriver instanceof CacheItemPoolInterface) {
-            /** @disregard P1006 Expected type **/
-            /** @disregard P1009 Undefined type **/
+            /** @disregard P1006 Expected type */
+            /** @disregard P1009 Undefined type */
             return new PsrCacheDriver(new Psr16Cache($this->cacheDriver));
         }
 
-        /** @disregard P1009 Undefined type **/
+        /** @disregard P1009 Undefined type */
         if ($this->cacheDriver instanceof Repository) {
             return new LaravelCacheDriver($this->cacheDriver);
         }
 
-        /** @disregard P1009 Undefined type **/
+        /** @disregard P1009 Undefined type */
         if ($this->cacheDriver instanceof Filesystem) {
             return new FlysystemDriver($this->cacheDriver);
         }
@@ -103,7 +99,7 @@ class GlowmarktApi extends Connector implements Cacheable
         }
 
         if (!$this->allowNonCachedRequests && !$this->cacheDriver) {
-            throw new InvalidArgumentException('A cache driver must be provided, or override with allowNonCachedRequests()');
+            throw new \InvalidArgumentException('A cache driver must be provided, or override with allowNonCachedRequests()');
         }
 
         try {
@@ -112,13 +108,13 @@ class GlowmarktApi extends Connector implements Cacheable
                 password: $this->password,
                 resolvedCacheDriver: $this->resolveCacheDriver(),
             ));
-        } catch (Exception $e) {
-            throw new RuntimeException('Failed to authenticate with the Glowmarkt API: '.$e->getMessage(), $e->getCode(), $e);
+        } catch (\Exception $e) {
+            throw new \RuntimeException('Failed to authenticate with the Glowmarkt API: '.$e->getMessage(), $e->getCode(), $e);
         }
 
         $token = $authResponse->json()['token'] ?? null;
         if (null === $token) {
-            throw new RuntimeException('Authentication response did not contain a token');
+            throw new \RuntimeException('Authentication response did not contain a token');
         }
         $pendingRequest->authenticate(new TokenAuthentication($token));
     }
@@ -145,8 +141,8 @@ class GlowmarktApi extends Connector implements Cacheable
 
     public function getResourceReadings(
         string $id,
-        DateTime $from,
-        DateTime $to,
+        \DateTime $from,
+        \DateTime $to,
         ?AggregateFunction $aggregateFunction = null,
         ?AggregatePeriod $aggregatePeriod = null,
     ): array {
@@ -165,8 +161,8 @@ class GlowmarktApi extends Connector implements Cacheable
     private function getResourceGivenType(
         string $id,
         ResourceType $type,
-        DateTime $from,
-        DateTime $to,
+        \DateTime $from,
+        \DateTime $to,
         ?AggregateFunction $aggregateFunction,
         ?AggregatePeriod $aggregatePeriod,
     ): array {

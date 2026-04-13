@@ -35,3 +35,6 @@ jobs:
 
       - name: Rector and PHPCSFixer (dry-run)
         run: composer run-script format-dryrun
+
+      - name: Test
+        run: composer run-script test

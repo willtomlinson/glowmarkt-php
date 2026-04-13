@@ -1,21 +1,23 @@
 <?php
 
-use Tests\TestCase;
+declare(strict_types=1);
 
-pest()->extend(TestCase::class)->in('Feature');
-
-use Saloon\Http\PendingRequest;
+use GlowmarktPhp\GlowmarktApi;
+use Saloon\Config;
 use Saloon\Http\Faking\MockClient;
-use Saloon\Http\Faking\MockResponse;
 
-function mockClient(): MockClient
-{
-    return new MockClient([
-        '*' => function (PendingRequest $pendingRequest) {
-            $endpoint = $pendingRequest->getRequest()->resolveEndpoint();
-            $method = $pendingRequest->getMethod()->value;
+require_once __DIR__ . '/Stubs/Illuminate/Contracts/Cache/Repository.php';
 
-            return MockResponse::fixture(implode('/', [$endpoint, $method]));
-        },
-    ]);
+uses()
+    ->beforeEach(fn () => MockClient::destroyGlobal())
+    ->in(__DIR__);
+
+Config::preventStrayRequests();
+
+function getApi($cacheDriver = null): GlowmarktApi {
+    return new GlowmarktApi(
+        username: getenv('GLOWMARKT_USERNAME'),
+        password: getenv('GLOWMARKT_PASSWORD'),
+        cacheDriver: $cacheDriver
+    );
 }

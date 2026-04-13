@@ -1,0 +1,23 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "Server": "openresty",
+    "Date": "Mon, 13 Apr 2026 14:20:18 GMT",
+    "Content-Type": "application\/json",
+    "Content-Length": "3631",
+    "Connection": "keep-alive",
+    "Vary": "Accept-Encoding",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Max-Age": "600",
+    "Access-Control-Allow-Methods": "PUT, GET, POST, DELETE, OPTIONS, PATCH",
+    "Access-Control-Allow-Headers": "Content-Type, content-type, x-glow-version, Access-Control-Allow-Headers, Authorization, token, applicationId, applicationid, userId, userOrganizationId, userorganizationid, functionalGroupId, functionalgroupid, employeeid, employeeId, X-Requested-With, COGNITO_ID_TOKEN",
+    "x-powered-by": "Express",
+    "etag": "\"-886336524\"",
+    "Strict-Transport-Security": "max-age=63072000; includeSubdomains; preload",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "X-XSS-Protection": "1;mode=block;",
+    "X-Content-Type-Options": "nosniff"
+  },
+  "data": "{\"clone\":false,\"active\":true,\"_id\":\"[REDACTED]\",\"applicationId\":\"[REDACTED]\",\"veTypeId\":\"[REDACTED]\",\"postalCode\":\"a11aa\",\"attributes\":{\"address\":{\"address\":\"1,THE STREET,LO\",\"addressLine1\":\"1\",\"addressLine2\":\"THE STREET LO\",\"county\":\"London\",\"city\":\"LO\",\"region\":\"London\",\"country\":\"UK\",\"postcode\":\"A1 1AA\"}},\"resources\":[{\"active\":true,\"resourceTypeId\":\"[REDACTED]\",\"ownerId\":\"[REDACTED]\",\"name\":\"gas consumption\",\"description\":\"gas consumption DCC SM profile reads\",\"label\":\"gas consumption DCC SM profile reads\",\"dataSourceResourceTypeInfo\":{\"unit\":\"kWh\",\"type\":\"GAS\"},\"dataSourceType\":\"AMRAPI\",\"classifier\":\"gas.consumption\",\"baseUnit\":\"kWh\",\"resourceId\":\"[REDACTED]\",\"updatedAt\":\"2026-03-29T11:37:01.563Z\",\"createdAt\":\"2026-03-29T11:37:00.822Z\",\"dataSourceUnitInfo\":{\"shid\":\"[REDACTED]\"}},{\"active\":true,\"resourceTypeId\":\"[REDACTED]\",\"ownerId\":\"[REDACTED]\",\"name\":\"gas cost\",\"description\":\"gas cost DCC SM profile reads\",\"label\":\"gas cost DCC SM profile reads\",\"dataSourceResourceTypeInfo\":{\"unit\":\"pence\",\"type\":\"GAS\"},\"dataSourceType\":\"AMRAPI\",\"classifier\":\"gas.consumption.cost\",\"baseUnit\":\"pence\",\"resourceId\":\"[REDACTED]\",\"updatedAt\":\"2026-03-29T11:37:01.561Z\",\"createdAt\":\"2026-03-29T11:37:00.827Z\",\"dataSourceUnitInfo\":{\"shid\":\"[REDACTED]\"}},{\"active\":true,\"resourceTypeId\":\"[REDACTED]\",\"ownerId\":\"[REDACTED]\",\"name\":\"electricity cost\",\"description\":\"electicity cost DCC SM profile reads\",\"label\":\"electicity cost DCC SM profile reads\",\"dataSourceResourceTypeInfo\":{\"unit\":\"pence\",\"type\":\"ELEC\"},\"dataSourceType\":\"AMRAPI\",\"classifier\":\"electricity.consumption.cost\",\"baseUnit\":\"pence\",\"resourceId\":\"[REDACTED]\",\"updatedAt\":\"2026-03-29T11:37:05.671Z\",\"createdAt\":\"2026-03-29T11:37:05.353Z\",\"dataSourceUnitInfo\":{\"shid\":\"[REDACTED]\"}},{\"active\":true,\"resourceTypeId\":\"[REDACTED]\",\"ownerId\":\"[REDACTED]\",\"name\":\"active export\",\"description\":\"electricity energy from active export power\",\"label\":\"electricity energy from active export power\",\"dataSourceResourceTypeInfo\":{\"unit\":\"kWh\",\"type\":\"PWER_AEXP\"},\"dataSourceType\":\"ADHOC\",\"classifier\":\"electricity.export\",\"baseUnit\":\"kWh\",\"resourceId\":\"[REDACTED]\",\"updatedAt\":\"2026-03-29T11:37:05.670Z\",\"createdAt\":\"2026-03-29T11:37:05.347Z\",\"dataSourceUnitInfo\":{\"shid\":\"[REDACTED]\"}},{\"active\":true,\"resourceTypeId\":\"[REDACTED]\",\"ownerId\":\"[REDACTED]\",\"name\":\"electricity consumption\",\"description\":\"electicity consumption DCC SM profile reads\",\"label\":\"electicity consumption DCC SM profile reads\",\"dataSourceResourceTypeInfo\":{\"unit\":\"kWh\",\"type\":\"ELEC\"},\"dataSourceType\":\"AMRAPI\",\"classifier\":\"electricity.consumption\",\"baseUnit\":\"kWh\",\"resourceId\":\"[REDACTED]\",\"updatedAt\":\"2026-03-29T11:37:05.669Z\",\"createdAt\":\"2026-03-29T11:37:05.336Z\",\"dataSourceUnitInfo\":{\"shid\":\"[REDACTED]\"}}],\"ownerId\":\"[REDACTED]\",\"name\":\"DCC Sourced\",\"timestamp\":\"2026-03-29T11:33:41.533Z\",\"veId\":\"[REDACTED]\",\"updatedAt\":\"2026-03-29T11:37:05.753Z\",\"createdAt\":\"2026-03-29T11:33:41.534Z\",\"id\":\"[REDACTED]\",\"veChildren\":[]}",
+  "context": []
+}

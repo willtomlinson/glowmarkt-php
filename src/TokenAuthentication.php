@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace GlowmarktPhp;
 
-use Saloon\Http\PendingRequest;
 use Saloon\Contracts\Authenticator;
+use Saloon\Http\PendingRequest;
 
 class TokenAuthentication implements Authenticator
 {
     public function __construct(
-        private string $token,
+        private readonly string $token,
     ) {
     }
 

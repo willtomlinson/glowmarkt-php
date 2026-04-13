@@ -11,8 +11,11 @@
     </testsuites>
     <source>
         <include>
-            <directory>app</directory>
             <directory>src</directory>
         </include>
     </source>
+    <php>
+        <env name="GLOWMARKT_USERNAME" value="username" />
+        <env name="GLOWMARKT_PASSWORD" value="password" />
+    </php>
 </phpunit>

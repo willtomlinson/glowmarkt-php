@@ -8,9 +8,8 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
 /**
- * Documentation: https://api.glowmarkt.com/api-docs/v0-1/vesys/#/Virtual%20Entity/virtualentity.findById
+ * Documentation: https://api.glowmarkt.com/api-docs/v0-1/vesys/#/Virtual%20Entity/virtualentity.findById.
  */
-
 class GetVirtualEntityRequest extends Request
 {
     protected Method $method = Method::GET;
@@ -23,10 +22,9 @@ class GetVirtualEntityRequest extends Request
     public function resolveEndpoint(): string
     {
         if ($this->id) {
-            return '/virtualentity/' . $this->id . '/resources';
+            return '/virtualentity/'.$this->id.'/resources';
         }
 
         return '/virtualentity';
     }
-
 }

@@ -1,0 +1,19 @@
+{
+    "statusCode": 404,
+    "headers": {
+        "Server": "openresty",
+        "Date": "Mon, 13 Apr 2026 14:24:43 GMT",
+        "Content-Type": "application\/json",
+        "Content-Length": "21",
+        "Connection": "keep-alive",
+        "Vary": "Accept-Encoding",
+        "access-control-allow-origin": "*",
+        "Access-Control-Max-Age": "600",
+        "access-control-allow-methods": "PUT, GET, POST, DELETE, OPTIONS",
+        "access-control-allow-headers": "Content-Type, Access-Control-Allow-Headers, Authorization, token, X-Requested-With",
+        "x-powered-by": "Express",
+        "etag": "\"-11613913\""
+    },
+    "data": "{\"error\":\"Not found\"}",
+    "context": []
+}

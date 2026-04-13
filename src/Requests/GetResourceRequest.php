@@ -12,9 +12,8 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
 /**
- * Documentation: https://api.glowmarkt.com/api-docs/v0-1/resourcesys/#/Resource/resource.findById
+ * Documentation: https://api.glowmarkt.com/api-docs/v0-1/resourcesys/#/Resource/resource.findById.
  */
-
 class GetResourceRequest extends Request
 {
     protected Method $method = Method::GET;
@@ -34,10 +33,10 @@ class GetResourceRequest extends Request
         $endpoint = '/resource';
 
         if ($this->id) {
-            $endpoint .= '/' . $this->id;
+            $endpoint .= '/'.$this->id;
 
-            if ($this->type) {
-                $endpoint .= '/' . $this->type->value;
+            if ($this->type instanceof ResourceType) {
+                $endpoint .= '/'.$this->type->value;
             }
         }
 
@@ -46,12 +45,14 @@ class GetResourceRequest extends Request
 
     protected function defaultQuery(): array
     {
-        $query = [];
+        $query = [
+            'nulls' => 1, // Any missing values from a time series resource will return as null instead of zero
+        ];
 
-        if ($this->from) {
+        if ($this->from instanceof DateTime) {
             $query['from'] = $this->from->format('Y-m-d\TH:i:s');
         }
-        if ($this->to) {
+        if ($this->to instanceof DateTime) {
             $query['to'] = $this->to->format('Y-m-d\TH:i:s');
         }
         if ($aggregateFunction = $this->aggregateFunction ?? AggregateFunction::Sum) {
@@ -63,5 +64,4 @@ class GetResourceRequest extends Request
 
         return $query;
     }
-
 }

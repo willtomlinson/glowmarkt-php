@@ -1,0 +1,22 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "Server": "openresty",
+    "Date": "Mon, 13 Apr 2026 14:19:31 GMT",
+    "Content-Type": "application\/json",
+    "Content-Length": "464",
+    "Connection": "keep-alive",
+    "Vary": "Accept-Encoding",
+    "access-control-allow-origin": "*",
+    "Access-Control-Max-Age": "600",
+    "Access-Control-Allow-Methods": "PUT, GET, POST, DELETE, OPTIONS, PATCH",
+    "Access-Control-Allow-Headers": "Content-Type, content-type, x-glow-version, Access-Control-Allow-Headers, Authorization, token, applicationId, applicationid, userId, userOrganizationId, userorganizationid, functionalGroupId, functionalgroupid, employeeid, employeeId, X-Requested-With, COGNITO_ID_TOKEN",
+    "x-powered-by": "Express",
+    "Strict-Transport-Security": "max-age=63072000; includeSubdomains; preload",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "X-XSS-Protection": "1;mode=block;",
+    "X-Content-Type-Options": "nosniff"
+  },
+  "data": "{\"valid\":true,\"token\":\"[REDACTED]\",\"exp\":1823609971,\"userGroups\":[],\"functionalGroupAccounts\":[],\"accountId\":\"[REDACTED]\",\"isTempAuth\":false,\"name\":\"\"}",
+  "context": []
+}

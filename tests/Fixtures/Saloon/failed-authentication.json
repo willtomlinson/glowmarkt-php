@@ -1,0 +1,17 @@
+{
+    "statusCode": 401,
+    "headers": {
+        "Server": "openresty",
+        "Date": "Mon, 13 Apr 2026 14:34:40 GMT",
+        "Content-Type": "application\/json",
+        "Content-Length": "15",
+        "Connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "Access-Control-Max-Age": "600",
+        "Access-Control-Allow-Methods": "PUT, GET, POST, DELETE, OPTIONS, PATCH",
+        "Access-Control-Allow-Headers": "Content-Type, content-type, x-glow-version, Access-Control-Allow-Headers, Authorization, token, applicationId, applicationid, userId, userOrganizationId, userorganizationid, functionalGroupId, functionalgroupid, employeeid, employeeId, X-Requested-With, COGNITO_ID_TOKEN",
+        "x-powered-by": "Express"
+    },
+    "data": "{\"valid\":false}",
+    "context": []
+}

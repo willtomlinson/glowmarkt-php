@@ -1,0 +1,23 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "Server": "openresty",
+    "Date": "Sun, 12 Apr 2026 12:40:20 GMT",
+    "Content-Type": "application\/json",
+    "Content-Length": "901",
+    "Connection": "keep-alive",
+    "Vary": "Accept-Encoding",
+    "access-control-allow-origin": "*",
+    "Access-Control-Max-Age": "600",
+    "access-control-allow-methods": "PUT, GET, POST, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Access-Control-Allow-Headers, Authorization, token, X-Requested-With",
+    "x-powered-by": "Express",
+    "etag": "\"-1362330500\"",
+    "Strict-Transport-Security": "max-age=63072000; includeSubdomains; preload",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "X-XSS-Protection": "1;mode=block;",
+    "X-Content-Type-Options": "nosniff"
+  },
+  "data": "{\"status\":\"OK\",\"name\":\"gas consumption\",\"resourceTypeId\":\"[REDACTED]\",\"resourceId\":\"[REDACTED]\",\"query\":{\"from\":\"2026-04-01T00:00:00\",\"to\":\"2026-04-30T23:59:59\",\"period\":\"P1D\",\"function\":\"sum\"},\"data\":[[1775001600,0.60071578],[1775088000,5.30443368],[1775174400,5.06641422],[1775260800,4.34102158],[1775347200,0.3966991],[1775433600,1.71147326],[1775520000,2.44820016],[1775606400,0.49870744],[1775692800,3.25293262],[1775779200,2.6068798],[1775865600,0.46470466],[1775952000,0],[1776038400,null],[1776124800,null],[1776211200,null],[1776297600,null],[1776384000,null],[1776470400,null],[1776556800,null],[1776643200,null],[1776729600,null],[1776816000,null],[1776902400,null],[1776988800,null],[1777075200,null],[1777161600,null],[1777248000,null],[1777334400,null],[1777420800,null],[1777507200,null]],\"units\":\"kWh\",\"classifier\":\"gas.consumption\"}",
+  "context": []
+}

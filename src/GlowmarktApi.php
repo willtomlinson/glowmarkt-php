@@ -17,6 +17,7 @@ use GlowmarktPhp\Requests\GetVirtualEntityRequest;
 use Illuminate\Contracts\Cache\Repository;
 use InvalidArgumentException;
 use League\Flysystem\Filesystem;
+use Override;
 use Psr\Cache\CacheItemPoolInterface;
 use RuntimeException;
 use Saloon\CachePlugin\Contracts\Cacheable;
@@ -96,6 +97,7 @@ class GlowmarktApi extends Connector implements Cacheable
         return new NullCacheDriver();
     }
 
+    #[Override]
     public function boot(PendingRequest $pendingRequest): void
     {
         if ($pendingRequest->getRequest() instanceof GetAccessTokenRequest) {

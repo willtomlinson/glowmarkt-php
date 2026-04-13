@@ -97,6 +97,7 @@ class GlowmarktApi extends Connector implements Cacheable
         return new NullCacheDriver();
     }
 
+    #[Override]
     public function boot(PendingRequest $pendingRequest): void
     {
         if ($pendingRequest->getRequest() instanceof GetAccessTokenRequest) {

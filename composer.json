@@ -5,7 +5,7 @@
   "license": "MIT",
   "homepage": "https://github.com/willtomlinson/glowmarkt-php",
   "require": {
-    "php": "^8.2",
+    "php": "^8.4",
     "saloonphp/saloon": "^4.0",
     "saloonphp/cache-plugin": "^3.0"
   },

@@ -11,6 +11,10 @@ return (new Config())
         '@auto' => true,
         '@Symfony' => true,
         'phpdoc_to_comment' => false,
+        'fully_qualified_strict_types' => false,
+        'global_namespace_import' => [
+            'import_classes' => true,
+        ],
     ])
     ->setFinder(
         (new Finder())

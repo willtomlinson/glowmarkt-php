@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace GlowmarktPhp\Requests;
 
+use DateTime;
 use GlowmarktPhp\Enums\AggregateFunction;
 use GlowmarktPhp\Enums\AggregatePeriod;
 use GlowmarktPhp\Enums\ResourceType;
@@ -20,8 +21,8 @@ class GetResourceRequest extends Request
     public function __construct(
         private readonly ?string $id = null,
         private readonly ?ResourceType $type = null,
-        private readonly ?\DateTime $from = null,
-        private readonly ?\DateTime $to = null,
+        private readonly ?DateTime $from = null,
+        private readonly ?DateTime $to = null,
         private readonly ?AggregateFunction $aggregateFunction = null,
         private readonly ?AggregatePeriod $aggregatePeriod = null,
     ) {
@@ -48,10 +49,10 @@ class GetResourceRequest extends Request
             'nulls' => 1, // Any missing values from a time series resource will return as null instead of zero
         ];
 
-        if ($this->from instanceof \DateTime) {
+        if ($this->from instanceof DateTime) {
             $query['from'] = $this->from->format('Y-m-d\TH:i:s');
         }
-        if ($this->to instanceof \DateTime) {
+        if ($this->to instanceof DateTime) {
             $query['to'] = $this->to->format('Y-m-d\TH:i:s');
         }
         if ($aggregateFunction = $this->aggregateFunction ?? AggregateFunction::Sum) {

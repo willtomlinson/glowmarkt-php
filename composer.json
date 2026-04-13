@@ -35,7 +35,13 @@
     }
   },
   "scripts": {
-    "format": "./vendor/bin/rector",
+    "format": [
+      "./vendor/bin/rector",
+      "./vendor/bin/php-cs-fixer fix"
+    ],
+    "format-dryrun": [
+      "./vendor/bin/rector --dry-run || true && ./vendor/bin/php-cs-fixer fix --dry-run --diff"
+    ],
     "test": "./vendor/bin/pest"
   }
 }

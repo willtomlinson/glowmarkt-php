@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace GlowmarktPhp;
 
 // Documentation: https://docs.glowmarkt.com/GlowmarktAPIDataRetrievalDocumentationIndividualUserForBright.pdf
+use DateTime;
+use Exception;
 use GlowmarktPhp\CacheDrivers\NullCacheDriver;
 use GlowmarktPhp\Enums\AggregateFunction;
 use GlowmarktPhp\Enums\AggregatePeriod;
@@ -13,8 +15,10 @@ use GlowmarktPhp\Requests\GetAccessTokenRequest;
 use GlowmarktPhp\Requests\GetResourceRequest;
 use GlowmarktPhp\Requests\GetVirtualEntityRequest;
 use Illuminate\Contracts\Cache\Repository;
+use InvalidArgumentException;
 use League\Flysystem\Filesystem;
 use Psr\Cache\CacheItemPoolInterface;
+use RuntimeException;
 use Saloon\CachePlugin\Contracts\Cacheable;
 use Saloon\CachePlugin\Contracts\Driver;
 use Saloon\CachePlugin\Drivers\FlysystemDriver;
@@ -99,7 +103,7 @@ class GlowmarktApi extends Connector implements Cacheable
         }
 
         if (!$this->allowNonCachedRequests && !$this->cacheDriver) {
-            throw new \InvalidArgumentException('A cache driver must be provided, or override with allowNonCachedRequests()');
+            throw new InvalidArgumentException('A cache driver must be provided, or override with allowNonCachedRequests()');
         }
 
         try {
@@ -108,13 +112,13 @@ class GlowmarktApi extends Connector implements Cacheable
                 password: $this->password,
                 resolvedCacheDriver: $this->resolveCacheDriver(),
             ));
-        } catch (\Exception $e) {
-            throw new \RuntimeException('Failed to authenticate with the Glowmarkt API: '.$e->getMessage(), $e->getCode(), $e);
+        } catch (Exception $e) {
+            throw new RuntimeException('Failed to authenticate with the Glowmarkt API: '.$e->getMessage(), $e->getCode(), $e);
         }
 
         $token = $authResponse->json()['token'] ?? null;
         if (null === $token) {
-            throw new \RuntimeException('Authentication response did not contain a token');
+            throw new RuntimeException('Authentication response did not contain a token');
         }
         $pendingRequest->authenticate(new TokenAuthentication($token));
     }
@@ -141,8 +145,8 @@ class GlowmarktApi extends Connector implements Cacheable
 
     public function getResourceReadings(
         string $id,
-        \DateTime $from,
-        \DateTime $to,
+        DateTime $from,
+        DateTime $to,
         ?AggregateFunction $aggregateFunction = null,
         ?AggregatePeriod $aggregatePeriod = null,
     ): array {
@@ -161,8 +165,8 @@ class GlowmarktApi extends Connector implements Cacheable
     private function getResourceGivenType(
         string $id,
         ResourceType $type,
-        \DateTime $from,
-        \DateTime $to,
+        DateTime $from,
+        DateTime $to,
         ?AggregateFunction $aggregateFunction,
         ?AggregatePeriod $aggregatePeriod,
     ): array {
